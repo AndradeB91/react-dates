@@ -1,18 +1,18 @@
-import PropTypes from 'prop-types';
-import momentPropTypes from 'react-moment-proptypes';
-import { mutuallyExclusiveProps, nonNegativeInteger } from 'airbnb-prop-types';
+import PropTypes from "prop-types";
+import momentPropTypes from "react-moment-proptypes";
+import { mutuallyExclusiveProps, nonNegativeInteger } from "airbnb-prop-types";
 
-import { DateRangePickerPhrases } from '../defaultPhrases';
-import getPhrasePropTypes from '../utils/getPhrasePropTypes';
+import { DateRangePickerPhrases } from "../defaultPhrases";
+import getPhrasePropTypes from "../utils/getPhrasePropTypes";
 
-import FocusedInputShape from './FocusedInputShape';
-import IconPositionShape from './IconPositionShape';
-import OrientationShape from './OrientationShape';
-import DisabledShape from './DisabledShape';
-import anchorDirectionShape from './AnchorDirectionShape';
-import openDirectionShape from './OpenDirectionShape';
-import DayOfWeekShape from './DayOfWeekShape';
-import CalendarInfoPositionShape from './CalendarInfoPositionShape';
+import FocusedInputShape from "./FocusedInputShape";
+import IconPositionShape from "./IconPositionShape";
+import OrientationShape from "./OrientationShape";
+import DisabledShape from "./DisabledShape";
+import anchorDirectionShape from "./AnchorDirectionShape";
+import openDirectionShape from "./OpenDirectionShape";
+import DayOfWeekShape from "./DayOfWeekShape";
+import CalendarInfoPositionShape from "./CalendarInfoPositionShape";
 
 export default {
   // required props for a functional interactive DateRangePicker
@@ -51,8 +51,16 @@ export default {
   keepFocusOnInput: PropTypes.bool,
 
   // calendar presentation and interaction related props
-  renderMonthText: mutuallyExclusiveProps(PropTypes.func, 'renderMonthText', 'renderMonthElement'),
-  renderMonthElement: mutuallyExclusiveProps(PropTypes.func, 'renderMonthText', 'renderMonthElement'),
+  renderMonthText: mutuallyExclusiveProps(
+    PropTypes.func,
+    "renderMonthText",
+    "renderMonthElement"
+  ),
+  renderMonthElement: mutuallyExclusiveProps(
+    PropTypes.func,
+    "renderMonthText",
+    "renderMonthElement"
+  ),
   orientation: OrientationShape,
   anchorDirection: anchorDirectionShape,
   openDirection: openDirectionShape,
@@ -77,6 +85,8 @@ export default {
   horizontalMonthPadding: nonNegativeInteger,
 
   // navigation related props
+  minDate: momentPropTypes.momentObj,
+  maxDate: momentPropTypes.momentObj,
   navPrev: PropTypes.node,
   navNext: PropTypes.node,
   onPrevMonthClick: PropTypes.func,
@@ -96,5 +106,5 @@ export default {
   monthFormat: PropTypes.string,
   weekDayFormat: PropTypes.string,
   phrases: PropTypes.shape(getPhrasePropTypes(DateRangePickerPhrases)),
-  dayAriaLabelFormat: PropTypes.string,
+  dayAriaLabelFormat: PropTypes.string
 };
